@@ -102,6 +102,9 @@ class zb_api:
         #      return None
 
     def take_order(self, market, direction, price, size,coin_place=None):
+        print(direction)
+        print(price)
+        print(size)
         if direction == "buy":
             trade_direction = 1
         else:

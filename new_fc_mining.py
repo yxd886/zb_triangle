@@ -17,7 +17,7 @@ def buy_main_body(api,base1,base2,_coin,coin_place):
     market1 = _coin +"_"+ base1
     market2=base2+"_"+base1
     market3=_coin+"_"+base2
-    action_ratio = 0.007
+    action_ratio = 0.004
 
     obj1 = api.get_depth(market1)
     obj2 = api.get_depth(market2)
@@ -97,8 +97,8 @@ def buy_main_body(api,base1,base2,_coin,coin_place):
                 money, coin, freez_money, freez_coin = api.get_available_balance(base1, _coin)
                 coin_amount = coin
                 api.take_order(market1, "sell", market1_buy, coin_amount, coin_place)
-                if (market1_buy*coin_amount/market2_ask)>=min_size[market2]:
-                    api.take_order(market2, "buy", market2_ask, (market1_buy*coin_amount/market2_ask), coin_place)
+
+                api.take_order(market2, "buy", market2_ask, (market1_buy*coin_amount/market2_ask), coin_place)
 
 
             elif ratio2>action_ratio:
@@ -118,8 +118,8 @@ def buy_main_body(api,base1,base2,_coin,coin_place):
                 money, coin, freez_money, freez_coin = api.get_available_balance(base1, _coin)
                 coin_amount = coin
                 api.take_order(market3, "sell", real_buy, coin_amount, coin_place)
-                if (market1_ask * coin_amount/market2_buy)>min_size[market2]:
-                    api.take_order(market2, "sell", market2_buy,(market1_ask * coin_amount/market2_buy), coin_place)
+
+                api.take_order(market2, "sell", market2_buy,(market1_ask * coin_amount/market2_buy), coin_place)
             else:
                 need_wait=True
 
@@ -256,8 +256,8 @@ if __name__ == '__main__':
 
 
     #load_money = "usdt"
-    total_load_coin="trx etc"
-    load_coin = "etc ltc"
+    total_load_coin="xem eos eth ltc xrp B91 brc qtum etc topc ada dash bts"
+    load_coin = "eos"
     load_parition="2"
     load_total_money="100"
     load_bidirection="3"
