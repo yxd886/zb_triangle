@@ -257,7 +257,7 @@ if __name__ == '__main__':
 
     #load_money = "usdt"
     total_load_coin="xem eos eth ltc xrp B91 brc qtum etc topc ada dash bts"
-    load_coin = "eos"
+    load_coin = "xem eos eth ltc xrp B91 brc qtum etc topc ada dash bts"
     load_parition="2"
     load_total_money="100"
     load_bidirection="3"
