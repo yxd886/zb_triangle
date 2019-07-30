@@ -284,7 +284,10 @@ if __name__ == '__main__':
                 apisecret = line.split("#")[1]
                 load_money = line.split("#")[2]
                 total_money="1000"
-                init_sell(apikey,apisecret,total_load_coin,load_money)
+                try:
+                    init_sell(apikey,apisecret,total_load_coin,load_money)
+                except:
+                    pass
                 p1 = Process(target=tick, args=(
                     apikey, apisecret, load_money, load_coin, load_parition, total_money,
                     load_bidirection, load_coin_place))
